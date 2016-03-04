@@ -18,6 +18,7 @@
         <td><%= property.direccion %></td>
         <td><%= property.precio %></td>
         <td><%= property.user.email %></td>
+        <td><%= image_tag property.image.url(:medium) %></td>
 
         <td><%= link_to 'Show', property %></td>
         <td><%= link_to 'Edit', edit_property_path(property) %></td>

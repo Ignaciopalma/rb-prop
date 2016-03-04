@@ -8,6 +8,7 @@
 		<td><%= @property.direccion %></td>
 		<td><%= @property.precio %></td>
 		<td><%= @property.user.email %></td>
+		<%= image_tag @property.image.url(:medium) %>
 	</tr>
 </table>
 
