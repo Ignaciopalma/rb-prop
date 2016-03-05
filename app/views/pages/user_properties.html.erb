@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rita Balboa Propiedades</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Direccion</th>
+      <th>Precio</th>
+      <th>Cliente</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_properties.each do |property| %>
+      <tr>
+        <td><%= property.direccion %></td>
+        <td><%= property.precio %></td>
+        <td><%= property.user.email %></td>
+        <td><%= image_tag property.image.url(:medium) %></td>
+
+        <td><%= link_to 'Show', property %></td>
+
+        <% if user_signed_in? %>
+        <td><%= link_to 'Edit', edit_property_path(property) %></td>
+        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+
+
+
+</table>

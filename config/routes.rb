@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   resources :properties
   devise_for :users
   
-  root "pages#home"
+  root "properties#index"
 
   get "about" => "pages#about"
+  get "user_properties" => "pages#user_properties"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

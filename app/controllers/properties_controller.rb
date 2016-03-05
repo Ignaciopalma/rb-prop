@@ -4,7 +4,13 @@ class PropertiesController < ApplicationController
   # GET /properties
   # GET /properties.json
   def index
+
     @properties = Property.all
+
+    if user_signed_in? 
+      @user_properties = current_user.properties
+    end
+
   end
 
   # GET /properties/1
