@@ -1,0 +1,61 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+ */
+
+$navbar-default-link-color: white;
+$btn-success-bg: #9D127F;
+$navbar-default-color: black;
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.container-fluid {
+padding-left: 0;
+}
+
+
+.navbar-default {
+    background-color: #9d127f;
+    border-color: #e7e7e7;
+    margin-bottom: 0;
+    border-color: #9D127F;
+}
+
+.panel {
+margin-left: 10%;
+margin-right: 10%;
+margin-top: 3%;
+}
+
+.foto-bg img {
+  width: 100%;
+}
+
+#notice {
+margin-bottom: 0;
+}
+
+.franja-dos {
+  height: 500px;
+  background-color: #ecf0f1;
+}
+
+.ajuste-signo-mas {
+  margin-top: 17px;
+}
+
+.nav ul li {
+  color: a123cfcea;
+}
+

@@ -8,26 +8,15 @@
 </head>
 <body>
 
-	<%= link_to "Home", root_path %>
-	<%= link_to "About", about_path %>
+	<%= render "layouts/nav" %>
 
-	<% if !user_signed_in? %>
-		<%= link_to "Sign In", new_user_registration_path %>
-		<%= link_to "Log In", new_user_session_path %>
+	<% if !flash.empty? %>
+		<div id="flash_messages">
+		  <% flash.each do |key, value| %>
+		    <%= content_tag(:div, value, :class => "flash #{key}") %>
+		  <% end %>
+		</div>
 	<% end %>
-
-	<% if user_signed_in? %>
-		<%= link_to "Log Out", destroy_user_session_path, :method => :delete %>
-		<%= link_to "New Property", new_property_path %>
-		<%= link_to "My Properties", user_properties_path %>
-
-		<p>You are logged in as <%= current_user.email %></p>
-	<% end %>
-
-
-
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
 
 	<%= yield %>
 
