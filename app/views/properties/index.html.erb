@@ -5,66 +5,85 @@
 </div>
 
 <div class="franja-dos">
-  <h1>Rita Balboa Propiedades</h1>
+  <div class="icons-container">
+    <%= image_tag "clock.png" %>
+    <%= image_tag "trust.png" %>
+    <%= image_tag "document.png" %>
+  </div>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Direccion</th>
-      <th>Precio</th>
-      <th>Cliente</th>
+<div class="propiedades-destacadas">
 
-    </tr>
-  </thead>
+<h2>Propiedades Destacadas</h2>
 
 <% if user_signed_in? %>
-  <tbody>
+
+  <div class="container-fluid">
+    <div class="row">
     <% @properties.each do |property| %>
-      <tr>
-        <td><%= property.direccion %></td>
-        <td><%= property.precio %></td>
-        <td><%= property.user.email %></td>
-        <td><%= image_tag property.image.url(:medium) %></td>
-
-        <td><%= link_to 'Show', property %></td>
-
-        <% if property.user == current_user %>
-        <td><%= link_to 'Edit', edit_property_path(property) %></td>
-        <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+        <div class="col-xs-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag property.image.url(:medium), class: "img-rounded" %>
+            <div class="caption">
+            <% if property.user == current_user %>
+              <h3><%= property.direccion %></h3>
+              <p><%= property.user.email %></p>
+              <p><%= property.precio %></p>
+              <%= link_to 'Show', property, class: "btn btn-success" %>
+              <%= link_to 'Edit', edit_property_path(property) %>
+              <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+              <h3><%= property.direccion %></h3>
+              <p><%= property.user.email %></p>
+              <p><%= property.precio %></p>
+              <%= link_to 'Show', property, class: "btn btn-success" %>
+            <% end %>
+  
+            </div>
+          </div>
+        </div>
     <% end %>
-  </tbody>
+    </div>
+  </div>
 
-  <% else %>
+<% else %>
 
-  <tbody>
-  <% @properties.each do |property| %>
-    <tr>
-      <td><%= property.direccion %></td>
-      <td><%= property.precio %></td>
-      <td><%= property.user.email %></td>
-      <td><%= image_tag property.image.url(:medium) %></td>
-
-      <td><%= link_to 'Show', property %></td>
-
-      <% if user_signed_in? %>
-      <td><%= link_to 'Edit', edit_property_path(property) %></td>
-      <td><%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-    </tr>
-  <% end %>
-  </tbody>
+  <div class="container-fluid">
+    <div class="row">
+    <% @properties.each do |property| %>
+        <div class="col-xs-6 col-md-4">
+          <div class="thumbnail">
+            <%= image_tag property.image.url(:medium), class: "img-rounded" %>
+            <div class="caption">
+            <% if user_signed_in? %>
+              <h3><%= property.direccion %></h3>
+              <p><%= property.user.email %></p>
+              <p><%= property.precio %></p>
+              <%= link_to 'Show', property, class: "btn btn-success" %>
+              <%= link_to 'Edit', edit_property_path(property) %>
+              <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% else %>
+              <h3><%= property.direccion %></h3>
+              <p><%= property.user.email %></p>
+              <p><%= property.precio %></p>
+              <%= link_to 'Show', property, class: "btn btn-success" %>
+            <% end %>
+  
+            </div>
+          </div>
+        </div>
+    <% end %>
+    </div>
+  </div>
 
 <% end %>
 
+<% if user_signed_in? %>
+<%= link_to 'New Property', new_property_path %>
+<% end %>
 
-</table>
+</div>
 
 <br>
 
 
-<%if user_signed_in? %>
-<%= link_to 'New Property', new_property_path %>
-<% end %>

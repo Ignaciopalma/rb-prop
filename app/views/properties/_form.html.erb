@@ -1,4 +1,12 @@
+<div class="panel panel-default">
+
+<div class="panel-heading">
+<h2 class="panel-title">Ingresa los datos</h2>
+</div>
+
+
 <%= form_for @property, url: properties_path, html: { multipart: true } do |f| %>
+
   <% if @property.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@property.errors.count, "error") %> prohibited this property from being saved:</h2>
@@ -11,18 +19,98 @@
     </div>
   <% end %>
 
+  <div class="panel-body">
+    <div class="form-group">
+      <%= f.label :Foto_Principal %>
+      <%= f.file_field :image %>
+    </div>
+    
+    <div class="form-group">
+        <%= f.label :Direccion %>
+        <%= f.text_field :direccion, class: "form-control" %>
+    </div>
 
-  <%= f.file_field :image %>
+    <div class="form-group">
+        <%= f.label :Comuna %>
+        <%= f.text_field :comuna, class: "form-control" %>
+    </div>
 
-  <%= f.label :Direccion %>
-  <%= f.text_field :direccion %>
+    <div class="form-group">
+        <%= f.label :Ciudad %>
+        <%= f.text_field :ciudad, class: "form-control" %>
+    </div>
 
-  <%= f.label :Precio %>
-  <%= f.text_field :precio %>
+      <div class="form-group">
+        <%= f.label :Casa %>
+        <%= f.check_box :casa %>
+    </div>
+   
+    <div class="form-group">
+        <%= f.label :Departamento %>
+        <%= f.check_box :departamento %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Terreno %>
+        <%= f.check_box :terreno %>
+    </div>
+
+      <div class="form-group">
+        <%= f.label :Descripcion %>
+        <%= f.text_field :descripcion, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Precio %>
+        <%= f.text_field :precio, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Baños %>
+        <%= f.number_field :banos, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Superficie_total %>
+        <%= f.text_field :superficie_total, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Amoblado %>
+        <%= f.text_field :amoblado, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Estacionamiento %>
+        <%= f.number_field :estacionamiento, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Bodega %>
+        <%= f.check_box :bodega %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :Estado %>
+        <%= f.text_field :estado, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+        <%= f.label :GastosComunes %>
+        <%= f.text_field :gastos_comunes, class: "form-control" %>
+    </div>
 
 
+    <div class="form-group">
+        <%= f.label :Comentarios %>
+        <%= f.text_area :comentarios, class: "form-control" %>
+    </div>
 
-  <div class="actions">
-    <%= f.submit %>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+
+    <% end %>
   </div>
-<% end %>
+
+</div>

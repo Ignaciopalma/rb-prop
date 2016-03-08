@@ -26,16 +26,16 @@ padding-left: 0;
 
 
 .navbar-default {
-    background-color: #9d127f;
-    border-color: #e7e7e7;
-    margin-bottom: 0;
-    border-color: #9D127F;
+  background-color: #9d127f;
+  border-color: #e7e7e7;
+  margin-bottom: 0;
+  border-color: #9D127F;
 }
 
 .panel {
-margin-left: 10%;
-margin-right: 10%;
-margin-top: 3%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 3%;
 }
 
 .foto-bg img {
@@ -43,19 +43,31 @@ margin-top: 3%;
 }
 
 #notice {
-margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .franja-dos {
   height: 500px;
+  background-color: #95a5a6;
+}
+
+.propiedades-destacadas {
   background-color: #ecf0f1;
+  text-align: center;
+}
+
+.propiedades-destacadas h2 {
+  margin-top: 0;
+  padding-top: 20px;
 }
 
 .ajuste-signo-mas {
   margin-top: 17px;
 }
 
-.nav ul li {
-  color: a123cfcea;
+.row {
+  margin-top: 50px;
 }
+
+
 
