@@ -1,30 +1,43 @@
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">Rita Balboa Propiedades</a>
+        </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li><%= link_to "Inicio", root_path %></li>
-        <li><%= link_to "Acerca de Rita", about_path %></li>
-        <li><%= link_to "Contacto", contact_path %></li>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <%= link_to "Inicio", root_path %>
+                </li>
+                <li>
+                    <%= link_to "Acerca de Rita", about_path %>
+                </li>
+                <li>
+                    <%= link_to "Contacto", contact_path %>
+                </li>
+                <% if !user_signed_in? %>
+                <li><%= link_to "Iniciar Sesion", new_user_session_path %></li>
+                <li><%= link_to "Registrarse", new_user_registration_path %></li>
+                <% end %>
 
-      </ul>
+                <% if user_signed_in? %>
+                <li><%= link_to "New Property", new_property_path %></li>
+                <li><%= link_to "My Properties", user_properties_path %></li>
+                <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
+                <% end %>
+            </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-      <% if !user_signed_in? %>
-        <li><%= link_to "Iniciar Sesion", new_user_session_path %></li>
-        <li><%= link_to "Registrarse", new_user_registration_path %></li>
-      <% end %>
 
-      <% if user_signed_in? %>
-        <li><%= link_to "New Property", new_property_path %></li>
-        <li><%= link_to "My Properties", user_properties_path %></li>
-        <li><%= link_to "Log Out", destroy_user_session_path, :method => :delete %></li>
-      </ul>
-
-     
-      
-      <% end %>
-    </div><!-- /.navbar-collapse -->
-
-  </div><!-- /.container-fluid -->
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
 </nav>
