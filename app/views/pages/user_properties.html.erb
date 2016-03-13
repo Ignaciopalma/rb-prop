@@ -1,47 +1,52 @@
-<p id="notice"><%= notice %></p>
+<section class="bg-primary" id="about">
+    <div class="container">
 
-<h1>Rita Balboa Propiedades</h1>
+      <p id="notice"><%= notice %></p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Direccion</th>
-      <th>Precio</th>
-      <th>Cliente</th>
+      <h1>Mis Propiedades</h1>
 
-    </tr>
-  </thead>
+      <table>
+        <thead>
+          <tr>
+            <th>Direccion</th>
+            <th>Precio</th>
+            <th>Cliente</th>
+
+          </tr>
+        </thead>
 
 
 
-  <div class="container-fluid">
-    <div class="row">
-    <% @user_properties.each do |property| %>
-        <div class="col-xs-6 col-md-4">
-          <div class="thumbnail">
-            <%= image_tag property.image.url(:medium), class: "img-rounded" %>
-            <div class="caption">
-            <% if user_signed_in? %>
-              <h3><%= property.direccion %></h3>
-              <p><%= property.user.email %></p>
-              <p>$ <%= property.precio %></p>
-              <%= link_to 'Show', property, class: "btn btn-success" %>
-              <%= link_to 'Edit', edit_property_path(property) %>
-              <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% else %>
-              <h3><%= property.direccion %></h3>
-              <p><%= property.user.email %></p>
-              <p>$ <%= property.precio %></p>
-              <%= link_to 'Show', property, class: "btn btn-success" %>
-            <% end %>
-  
-            </div>
+        <div class="container-fluid">
+          <div class="row">
+          <% @user_properties.each do |property| %>
+              <div class="col-xs-6 col-md-4">
+                <div class="thumbnail">
+                  <%= image_tag property.image.url(:medium) %>
+                  <div class="caption">
+                  <% if user_signed_in? %>
+                    <h3><%= property.direccion %></h3>
+                    <p><%= property.user.email %></p>
+                    <p>$ <%= property.precio %></p>
+                    <%= link_to 'Show', property, class: "btn btn-success" %>
+                    <%= link_to 'Edit', edit_property_path(property) %>
+                    <%= link_to 'Destroy', property, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% else %>
+                    <h3><%= property.direccion %></h3>
+                    <p><%= property.user.email %></p>
+                    <p>$ <%= property.precio %></p>
+                    <%= link_to 'Show', property, class: "btn btn-success" %>
+                  <% end %>
+        
+                  </div>
+                </div>
+              </div>
+          <% end %>
           </div>
         </div>
-    <% end %>
-    </div>
+
+
+
+      </table>
   </div>
-
-
-
-</table>
+</section>
