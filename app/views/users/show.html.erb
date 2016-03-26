@@ -1,0 +1,16 @@
+<section class="bg-primary" id="about">
+    <div class="container">
+
+    <table>
+    <% @user.each do |user| %>
+    	<th>Nombre</th>
+    	<th>Apellido</th>
+    	<th>Telefono</th>
+    	<th>email</th>
+			<tr><%= user.nombre %></tr>
+    	</th>
+    	<% end %>
+    </table>
+
+	</div>
+</section>

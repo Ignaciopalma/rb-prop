@@ -4,8 +4,7 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
-# Ignore bundler config.
-/.bundle
+
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -15,3 +14,15 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore database.yml file to prevent password leakage
+/config/database.yml
+
+# Ignore database.yml file to prevent password leakage
+/config/secrets.yml
+
+# Ignore database.yml file to prevent password leakage
+/config/.env
+
+# Ignore .DS_Store files on Mac
+.DS_Store

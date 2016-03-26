@@ -1,0 +1,45 @@
+<%= form_for @user, url: users_path, html: { multipart: true } do |f| %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this property from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="panel-body">
+
+   <div class="form-group">
+        <%= f.label :nombre %>
+        <%= f.text_field :nombre, class: "form-control" %>
+    </div>
+
+   <div class="form-group">
+        <%= f.label :apellido %>
+        <%= f.text_field :apellido, class: "form-control" %>
+    </div>
+
+   <div class="form-group">
+        <%= f.label :telefono %>
+        <%= f.number_field :telefono, class: "form-control" %>
+    </div>
+
+   <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: "form-control" %>
+    </div>
+    
+
+     <div class="actions">
+      <%= f.submit %>
+    </div>
+
+    
+   </div>
+
+<% end %>
